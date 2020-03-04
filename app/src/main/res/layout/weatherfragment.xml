@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.comviva.kotlinweather.viewModel.WeatherViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:text="Temperature"
+            android:textSize="24dp"
+            android:textColor="@android:color/holo_orange_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={viewmodel._weatherModel.main.temp}"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearview"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/temperature"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/lat_lab"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/holo_orange_dark"
+
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:textSize="15dp"
+                android:text="lat"
+                android:gravity="right"
+                android:paddingRight="10dp" />
+
+            <TextView
+                android:id="@+id/lat"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:gravity="left"
+                android:textSize="15dp"
+                android:paddingLeft="10dp"
+                android:text="@={viewmodel._weatherModel.coord.lat}"
+
+                />
+
+            <TextView
+                android:id="@+id/lon_lab"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/holo_orange_dark"
+
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:text="lon"
+                android:textSize="15dp"
+                android:gravity="right"
+                android:paddingRight="10dp"
+
+                />
+
+            <TextView
+                android:id="@+id/lon"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:textSize="15dp"
+                android:layout_weight="0.3"
+                android:text="@={viewmodel._weatherModel.coord.lon}"
+                android:gravity="left"
+                android:paddingLeft="10dp"
+
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearview2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/linearview"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/desc_lab"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+
+                android:textColor="@android:color/holo_orange_dark"
+
+                android:text="Description"
+                android:gravity="right"
+                android:paddingRight="10dp" />
+
+            <TextView
+                android:id="@+id/desc"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+
+                android:gravity="left"
+                android:paddingLeft="10dp"
+                android:text="@={viewmodel._weatherModel.weather[0].description}"
+
+
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearview3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            app:layout_constraintTop_toBottomOf="@id/linearview2"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/humidity_lab"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+
+                android:textColor="@android:color/holo_orange_dark"
+
+                android:text="humidity"
+                android:gravity="right"
+                android:paddingRight="10dp" />
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+
+                android:gravity="left"
+                android:paddingLeft="10dp"
+                android:text="@={viewmodel._weatherModel.main.humidity}"
+
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearview4"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/linearview3"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/city_lab"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+
+                android:textColor="@android:color/holo_orange_dark"
+
+                android:text="City"
+                android:gravity="right"
+                android:paddingRight="10dp" />
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:textSize="15dp"
+
+                android:paddingLeft="10dp"
+                android:text="@={viewmodel._weatherModel.name}"
+
+
+                />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
